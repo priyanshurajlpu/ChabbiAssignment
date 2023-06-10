@@ -1,0 +1,25 @@
+Q1. Get your basics right - Implement selection sort algorithm in python. The function accepts a
+list in the input and returns a sorted list.
+E.g.
+Input f1([5,416,54,21,6135,15,741]) should
+Return [5, 15, 21, 54, 416, 741, 6135]
+
+CODE--->
+
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_ind = i
+
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_ind]:
+                min_ind = j
+
+        arr[i], arr[min_ind] = arr[min_ind], arr[i]
+a = [5,416,54,21,6135,15,741]
+selection_sort(a)
+
+for i in range(len(a)):
+    print a[i],
+    
+    
