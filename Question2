@@ -20,8 +20,10 @@ f("xls,spreadsheet;xlsx,spreadsheet;jpg,image", ["abc.jpg",
 "123": "unknown"
 }
 
+----------------------------------------------------------------------------------------------------------------------
 
-CODE--->
+
+SOLUTION CODE--->
 
 def get_file_types(extension_type_string, file_list):
     extension_type_pairs = extension_type_string.split(';')
