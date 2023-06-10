@@ -1,0 +1,75 @@
+Q1. Get your basics right - Implement selection sort algorithm in python. The function accepts a
+list in the input and returns a sorted list.
+E.g.
+Input f1([5,416,54,21,6135,15,741]) should
+Return [5, 15, 21, 54, 416, 741, 6135]
+
+CODE--->
+
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_ind = i
+
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_ind]:
+                min_ind = j
+
+        arr[i], arr[min_ind] = arr[min_ind], arr[i]
+a = [5,416,54,21,6135,15,741]
+selection_sort(a)
+
+for i in range(len(a)):
+    print a[i],
+    
+    
+ Q2) Dictionary, what?
+Write a program that returns the file type from a file name. The type of the file is determined
+from the extension. Initially, a list of values of the form "extension,type"(e.g. xls,spreadsheet;
+png,image) will be input.
+The program takes input in the following form:
+1. Input extension and type values in the form of a string having the following format:
+a. "extension1,type1;extension2,type2;extension3,type3"
+b. E.g. If we needed to input xls → spreadsheet, xlsx → spreadsheet, jpg → image
+our string would be something like: "xls,spreadsheet;xlsx,spreadsheet;jpg,image"
+2. Input a list of filename.extension. E.g. an input list could be something like ["abc.html",
+"xyz.xls", "text.csv", "123"]
+The program should return a dict of filename: type pairs
+E.g.
+f("xls,spreadsheet;xlsx,spreadsheet;jpg,image", ["abc.jpg",
+"xyz.xls", "text.csv", "123"]) should return
+{
+"abc.jpg": "image",
+"xyz.xls": "spreadsheet",
+"Text.csv": "unknown",
+"123": "unknown"
+}
+
+
+CODE--->
+
+def get_file_types(extension_type_string, file_list):
+    extension_type_pairs = extension_type_string.split(';')
+    extension_type_dict = {}
+    
+    for pair in extension_type_pairs:
+        extension, file_type = pair.split(',')
+        extension_type_dict[extension] = file_type
+    
+    result_dict = {}
+    
+    for file_name in file_list:
+        extension = file_name.split('.')[-1]
+        file_type = extension_type_dict.get(extension, 'unknown')
+        result_dict[file_name] = file_type
+    
+    return result_dict
+
+extension_type_string = "xls,spreadsheet;xlsx,spreadsheet;jpg,image"
+file_list = ["abc.jpg", "xyz.xls", "text.csv", "123","abc"]
+
+result = get_file_types(extension_type_string, file_list)
+print(result)
+
+
+Q3)
