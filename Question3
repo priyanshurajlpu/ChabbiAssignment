@@ -37,7 +37,7 @@ SOLUTION   -- CODE--->
 def sort_list_of_dicts(lst, key):
     return sorted(lst, key=lambda x: x[key])
 
-# Example usage
+
 fruits = [
     {"fruit": "orange", "color": "orange"},
     {"fruit": "apple", "color": "red"},
